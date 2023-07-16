@@ -1,6 +1,8 @@
 .cart{
     background-color: rgba(255, 153, 0, 0.30);
     padding: 25px;
+    position: sticky;
+    top: 0;
 }
 
 .cart h5{
