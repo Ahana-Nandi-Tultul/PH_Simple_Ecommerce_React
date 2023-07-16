@@ -14,11 +14,24 @@ const Shops = () => {
         .then(res => res.json())
         .then(data => setProducts(data))
     }, []);
+    useEffect(() => {
+        const storedProducts = getStoredItem();
+        let storedCart = [];
+        for(const item in storedProducts){
+            const addedProducts = products.find(product => product.id === item);
+            if(addedProducts){
+                addedProducts.quantity = storedProducts[item];
+                storedCart.push(addedProducts);
+            }
+        }
+        setCart(storedCart);
+    }, [products]);
+
     const handleAddToCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
         addToCart(product.id);
-        console.log(getStoredItem());
+
     }
 
     return (
