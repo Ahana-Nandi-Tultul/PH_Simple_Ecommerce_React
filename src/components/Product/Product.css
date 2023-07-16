@@ -1,0 +1,50 @@
+.product{
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    position: relative;
+}
+.product img{
+    width: 286px;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+.product-name{
+    margin: 0;
+    font-family: Lato;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.032px;
+}
+
+.product-info{
+    margin-left: 15px;
+}
+
+
+.product-price{
+    font-family: Lato;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.026px;
+    margin-bottom: 30px;
+}
+
+.product-info p{
+    margin-top: 11px;
+}
+
+.btn-cart{
+    border-radius: 0px 0px 8px 8px;
+    border: 1px solid #95A0A7;
+    background: #FFE0B3;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+
+}
