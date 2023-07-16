@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Shops.css';
 import Product from '../Product/Product';
+import Cart from '../Cart/Cart';
+import { addToCart, getStoredItem } from '../../utilities/db';
 
  
 
@@ -15,6 +17,8 @@ const Shops = () => {
     const handleAddToCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
+        addToCart(product.id);
+        console.log(getStoredItem());
     }
 
     return (
@@ -27,9 +31,8 @@ const Shops = () => {
                         handleAddToCart={handleAddToCart}></Product>)
                 }
             </div>
-            <div>
-                <h1>Order Summary</h1>
-                <p>Selected Items: {cart.length}</p>
+            <div className='cart-container'>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );

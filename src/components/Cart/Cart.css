@@ -1,0 +1,21 @@
+.cart{
+    background-color: rgba(255, 153, 0, 0.30);
+    padding: 25px;
+}
+
+.cart h5{
+    text-align: center;
+    font-family: Lato;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.cart h6{
+    font-family: Lato;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
