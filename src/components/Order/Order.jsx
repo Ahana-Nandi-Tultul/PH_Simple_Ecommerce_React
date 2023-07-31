@@ -3,7 +3,7 @@ import Cart from '../Cart/Cart';
 import { useLoaderData } from 'react-router-dom';
 import ReviewItems from '../ReviewItems/ReviewItems';
 import './Order.css';
-import { removeItems } from '../../utilities/db';
+import { deleteShoppingCart, removeItems } from '../../utilities/db';
 
 const Order = () => {
     const savedCart = useLoaderData();
@@ -13,6 +13,11 @@ const Order = () => {
         const remaining = cart.filter(product => product.id !== id);
         setCart(remaining);
         removeItems(id);
+    }
+
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
     }
 
     console.log(cart);
@@ -28,7 +33,9 @@ const Order = () => {
                     }
                 </div>
                 <div className='cart-container'>
-                    <Cart cart={cart}></Cart>
+                    <Cart 
+                    cart={cart}
+                    handleClearCart={handleClearCart}></Cart>
                 </div>
             </div>
         </div>
