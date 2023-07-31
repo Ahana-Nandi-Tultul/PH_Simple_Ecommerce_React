@@ -9,3 +9,15 @@
     gap: 45px;
     margin: 50px;
 }
+
+.btn-procced-order{
+    border-radius: 4px;
+    background: #FF9900;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: Lato;
+    margin: 10px auto;
+}

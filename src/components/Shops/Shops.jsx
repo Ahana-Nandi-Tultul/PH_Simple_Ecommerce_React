@@ -3,8 +3,10 @@ import './Shops.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToCart, deleteShoppingCart, getStoredItem } from '../../utilities/db';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
- 
 
 const Shops = () => {
     const [products, setProducts] = useState([]);
@@ -65,7 +67,14 @@ const Shops = () => {
             <div className='cart-container'>
                 <Cart 
                 cart={cart}
-                handleClearCart = {handleClearCart}></Cart>
+                handleClearCart = {handleClearCart}>
+                        <Link to="/order">
+                            <button className='btn-procced-order'>
+                                <span>Review Order</span>
+                                <FontAwesomeIcon icon={faArrowRight} /> 
+                            </button>
+                        </Link>
+                </Cart>
             </div>
         </div>
     );
