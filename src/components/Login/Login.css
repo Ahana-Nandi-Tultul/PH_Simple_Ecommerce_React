@@ -1,0 +1,50 @@
+.form-container{
+    border: 1px solid black;
+    margin: 20px auto;
+    width: 35%;
+    padding: 0px 40px;
+    box-shadow: -14px 10px 10px 0px rgba(255, 153, 0, 0.30);
+}
+.form-container h2{
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.088px;
+}
+.form-control{
+    margin-bottom: 20px;
+}
+.form-control label{
+    font-size: 17px;
+    font-style: normal;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-control input{
+    font-size: 1.5rem;
+    width:95% ;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn-submit{
+    background: rgba(255, 153, 0, 0.30);
+    border: none;
+    border-radius: 5px;
+    margin: 40px auto;
+    width: 100%;
+    font-size: 21px;
+}
+.form-container p{
+    text-align: center;
+}
+.btn-google{
+    border-radius: 5px;
+    margin: 40px auto;
+    width: 100%;
+    font-size: 21px;
+    border: 1px solid black;
+}
