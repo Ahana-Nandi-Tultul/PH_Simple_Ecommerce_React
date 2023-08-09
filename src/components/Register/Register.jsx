@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+
 
 const Register = () => {
-
+    const {createUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleRegister = (event) => {
         event.preventDefault();
 
-        const form = event.target();
+        const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        console.log(email, password, confirm);
+        // console.log(email, password, confirm);
+        setError('');
+        setSuccess('');
+
+        if(confirm !== password){
+            setError('Confirm Password is wrong!');
+            return
+        }
+        if(password.length < 8){
+            setError('Please provide 8 characters as password');
+            return;
+        }
+
+        createUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setSuccess('Succes! You have created an account.');
+            form.reset();
+        })
+        .catch(error => console.log(error.message))
     }
 
     return (
@@ -36,6 +60,8 @@ const Register = () => {
             </form>
             <p><small>Already have an accout? <Link to="/login">Login</Link></small></p>
             <button className='btn-google'>Continue with Google</button>
+            <p><small>{error}</small></p>
+            <p><small>{success}</small></p>
         </div>
     );
 };

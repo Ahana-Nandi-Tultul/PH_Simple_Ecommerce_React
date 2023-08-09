@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    const {login} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        setError('');
+        setSuccess('');
+        login(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setSuccess('Succes! You have logged in successfully.')
+            form.reset();
+        })
+        .catch(error =>{
+            console.log(error.message)
+            setError(error.message);
+        })
+    }
     return (
         <div className="form-container">
             <h2>Login</h2>
-            <form className='form'>
+            <form onSubmit={handleLogin} className='form'>
                 <div className='form-control'>
                     <label htmlFor='email'>Email</label>
                     <input type='text' name="email"></input>
@@ -21,6 +47,8 @@ const Login = () => {
             </form>
             <p><small>New to Ema-John? <Link to="/register">Create an accout</Link></small></p>
             <button className='btn-google'>Continue with Google</button>
+            <p><small>{error}</small></p>
+            <p><small>{success}</small></p>
         </div>
     );
 };
