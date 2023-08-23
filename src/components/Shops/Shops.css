@@ -21,3 +21,12 @@
     font-family: Lato;
     margin: 10px auto;
 }
+
+.pagination{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pagination .selected{
+    background-color: #FF9900;
+}

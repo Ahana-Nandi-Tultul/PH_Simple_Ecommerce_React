@@ -1,13 +1,22 @@
 import { getStoredItem } from "../../utilities/db";
 
 const cartProductsLoader = async() => {
-    const loadedProductsJson = await fetch('products.json');
+    const storedProducts = getStoredItem();
+    const ids = Object.keys(storedProducts);
+
+    console.log(ids)
+    const loadedProductsJson = await fetch('http://localhost:3000/productsById', {
+        method: "POST",
+        headers: {
+            "content-type" : "application/json"
+        },
+        body: JSON.stringify(ids)
+    });
     const loadedProducts = await loadedProductsJson.json();
 
-    const storedProducts = getStoredItem();
     let storedCart = [];
     for(const id in storedProducts){
-        const addedProducts = loadedProducts.find(pd => pd.id === id);
+        const addedProducts = loadedProducts.find(pd => pd._id === id);
         if(addedProducts){
             addedProducts.quantity = storedProducts[id];
             storedCart.push(addedProducts);

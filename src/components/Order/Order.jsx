@@ -10,9 +10,10 @@ import { faCreditCardAlt } from '@fortawesome/free-solid-svg-icons'
 const Order = () => {
     const savedCart = useLoaderData();
     const [cart, setCart] = useState(savedCart);
+    console.log(cart);
     
     const handleRemoveItemFromCart = (id) => {
-        const remaining = cart.filter(product => product.id !== id);
+        const remaining = cart.filter(product => product._id !== id);
         setCart(remaining);
         removeItems(id);
     }
@@ -22,7 +23,7 @@ const Order = () => {
         deleteShoppingCart();
     }
 
-    console.log(cart);
+    // console.log(cart);
     return (
         <div>
             <div className='shops-container'>

@@ -29,8 +29,9 @@ const getStoredItem = () =>{
 
 const removeItems = (id) => {
     const savedCart = JSON.parse(localStorage.getItem('shopping-cart'));
-    console.log(savedCart);
+    // console.log(savedCart);
     if(savedCart){
+        console.log(id);
         delete savedCart[id];
         localStorage.setItem('shopping-cart', JSON.stringify(savedCart));
     }
